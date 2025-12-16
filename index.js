@@ -1,1 +1,400 @@
-const T=d;(function(e,f){const Q=d,g=e();while(!![]){try{const h=parseInt(Q(0x12c))/0x1*(-parseInt(Q(0x188))/0x2)+-parseInt(Q(0x1f3))/0x3*(parseInt(Q(0x186))/0x4)+-parseInt(Q(0x1a0))/0x5*(parseInt(Q(0x145))/0x6)+parseInt(Q(0x126))/0x7+parseInt(Q(0x174))/0x8*(-parseInt(Q(0x1c1))/0x9)+parseInt(Q(0x142))/0xa+parseInt(Q(0x16d))/0xb*(parseInt(Q(0x179))/0xc);if(h===f)break;else g['push'](g['shift']());}catch(i){g['push'](g['shift']());}}}(c,0x59dfe));const b=(function(){let e=!![];return function(f,g){const h=e?function(){const R=d;if(g){const i=g[R(0x1cb)](f,arguments);return g=null,i;}}:function(){};return e=![],h;};}()),a=b(this,function(){const S=d,f={'eJZZJ':S(0x1a5),'AZUKE':function(j,k){return j(k);},'CBNiq':function(j,k){return j+k;},'hewBV':S(0x140),'ESkqd':S(0x189),'NuNPz':function(j){return j();},'LcblN':S(0x17e),'CoPNL':S(0x121),'Xygce':S(0x1f7),'YVGTo':S(0x1bf),'mGHlP':S(0x1ae),'IndAf':S(0x1dd),'SHfFX':S(0x1cf),'QYkYW':function(j,k){return j===k;},'VenhY':S(0x1da),'JNzvZ':S(0x14c)};let g;try{const j=f[S(0x15d)](Function,f['CBNiq'](f[S(0x1eb)](f[S(0x191)],f[S(0x1af)]),');'));g=f[S(0x163)](j);}catch(k){g=window;}const h=g[S(0x18e)]=g[S(0x18e)]||{},i=[f[S(0x1b1)],f[S(0x138)],f[S(0x1c8)],f[S(0x1d3)],f['mGHlP'],f['IndAf'],f[S(0x1ad)]];for(let l=0x0;l<i['length'];l++){if(f[S(0x1ca)](f[S(0x1e4)],f[S(0x166)])){f(f[S(0x19d)]);return;}else{const n=b[S(0x1d4)][S(0x160)][S(0x132)](b),o=i[l],p=h[o]||n;n[S(0x165)]=b[S(0x132)](b),n[S(0x1d7)]=p[S(0x1d7)][S(0x132)](p),h[o]=n;}}});a();const UUID='3bd112f1-3bea-4f28-8a07-be0c8c456e67',CORRECT_MD5=T(0x169),cipherText='{\x22salt\x22:\x22caTQ3XBAXyY1Ven7BigFXA==\x22,\x22iv\x22:\x226SeOLNotz6cABOP7\x22,\x22ct\x22:\x22INjO6gfZ/TstMdaRxe5OzRH9YGEMYPG01JkHSMktpMhxJd9mlXElnb9zbBBSfTjOZi04HCgMSEy4KYxJdn1yZszgynx0r2KrB+rJ+nT3S1HIfDJWgXpIYR0ab+90G7vmGrKfH8P9UZNjLdf1kaCkIQGsLIWCg/CJQeiRUjeNyaCImmwPjR0qaaACuNGJw6qotSZluvQpWa67PK2Svww2dYnEBMNyi+kpWC2H0DklLX2jwkrxqN3ikNdg0gxclqH+ilSJ6Tcls6vlmJnaatftmOV8o0nhv1NM0ABHebhHpQ7QRFtiD45Q9bFqYXgAaOg1xnswfGxOnu8OmKBW6vkFX2FQPejU9wlqEReSUO5SLG5BqqJWb7VOAlqiVQipSGnleKSmtK/gN1fNGuH4f0/sBxjnGC/sPHrSA5C2J4JDQ/7VbvpdAyQqSrlNqdXS/05oSZyfZH8fAlfINiT8g+jcNyI0B4/EbPX73hCJLJYcImi95uUpKKW4qNIUZ1rWiH7RG4V157/aufT1azByJ0Wh1kESUKuhab24m9/hs1CIb+kIJa/Aor4qb/vgLDAj+nZwbEvTKomo1NDGgzhIIqc/72AiWoVAbtQpWQfnJUYPIi5iGYKVqpW3tqPmm9BoQOg1soqtqGKBRKrlbpgKc7Eo4M0LMiz8xV1oAzlYKsQy1efP/0+1oec5nNxHgr9myQ07rDvTtsKlOlL996ykLfNU3W7w3jaKeTa9sx6AVpxsQx7jN4Y3ebrGihKaDxMzJeP+8zf/riI7StMJu/MDx/q3hqA3tfkfbAwO8Ab0/a0Oy4gfvbLqO/bveI2qwxPZQ2uDJi3UtYaupAo6sgRmDaX4/7Q+Oa7yup81j3LtGTY4/2E7DQmu5Jmtjaip+BnKBadnLLfxnT5IX22DwbpeplZZkvf146oBLq3o3JnBD02ovHCjNbbndBi+tO22vP5LEZVYVzDmNxtCNlb4i/Gnf9lqWtLSzTmHLJd4WAmyl6/wZxCVPwF0JqKDd5AEVR1cXZN8OqX9bUImJm91Wo9/ca+NLbXSPrfQ8/ItWaKrM1hnmkfC+2/YEimbCEuPo1x6qD6ZnExfrb7n5dEtNKIPI/CO/Bth/UYoMNT72K/LlbBWsY++Ete6eTp27jPezWBqJCCYiBoznELdZbJ0M+QDtmL9184apYfOJwbYfAbW4LPsQfSvlKvIXIh6YwRNi8xyRb9pnPBY0aA=\x22,\x22iter\x22:150000,\x22alg\x22:\x22AES-GCM-PBKDF2-SHA256\x22}';function bufToBase64(e){const U=T,f={'KPneY':function(g,h){return g(h);}};return f['KPneY'](btoa,String[U(0x14e)](...new Uint8Array(e)));}function base64ToBuf(e){const V=T,f={'srSZs':function(j,k){return j(k);},'GQFIf':function(j,k){return j<k;}},g=f[V(0x194)](atob,e),h=new Uint8Array(g[V(0x1cc)]);for(let j=0x0;f['GQFIf'](j,g[V(0x1cc)]);j++)h[j]=g[V(0x129)](j);return h[V(0x19f)];}async function deriveKey(h,i,j=0x249f0){const W=T,k={};k[W(0x1e2)]=W(0x1c2),k[W(0x1ac)]='PBKDF2',k['sQWoH']='AES-GCM',k[W(0x1de)]=W(0x1e7);const l=k,m=new TextEncoder(),n=await crypto[W(0x150)][W(0x1e5)](l[W(0x1e2)],m[W(0x1dc)](h),l[W(0x1ac)],![],[W(0x16f)]),o={};o[W(0x1b9)]=l[W(0x1ac)],o[W(0x14d)]=i,o['iterations']=j,o[W(0x151)]=W(0x1f4);const p={};return p[W(0x1b9)]=l[W(0x171)],p[W(0x1cc)]=0x100,crypto[W(0x150)][W(0x16f)](o,n,p,![],[l[W(0x1de)],W(0x1e8)]);}async function encryptArticle(f,g,h=0x249f0){const X=T,i={'HIQVo':function(p,q,r,s){return p(q,r,s);},'DhsLR':'AES-GCM','petAe':'AES-GCM-PBKDF2-SHA256'},j=new TextEncoder(),k=crypto['getRandomValues'](new Uint8Array(0x10)),l=crypto['getRandomValues'](new Uint8Array(0xc)),m=await i[X(0x1ed)](deriveKey,g,k[X(0x19f)],h),n={};n['name']=i['DhsLR'],n['iv']=l;const o=await crypto[X(0x150)][X(0x1e7)](n,m,j[X(0x1dc)](f));return{'salt':bufToBase64(k[X(0x19f)]),'iv':bufToBase64(l[X(0x19f)]),'ct':bufToBase64(o),'iter':h,'alg':i['petAe']};}async function decryptArticle(f,g){const Y=T,h={'EOpin':function(q,r){return q(r);},'eziDw':function(q,r){return q(r);},'FAnfv':function(q,r,s,t){return q(r,s,t);},'sUayV':'AES-GCM'};if(!f||!f['ct']||!f['salt']||!f['iv'])throw new Error(Y(0x13b));const i=f[Y(0x14f)]||0x249f0,j=h[Y(0x136)](base64ToBuf,f[Y(0x14d)]),k=base64ToBuf(f['iv']),l=h[Y(0x120)](base64ToBuf,f['ct']),m=await h[Y(0x17f)](deriveKey,g,j,i),n={};n['name']=h[Y(0x16c)],n['iv']=k;const o=await crypto[Y(0x150)]['decrypt'](n,m,l),p=new TextDecoder();return p[Y(0x12f)](o);}const envelope=document[T(0x152)](T(0x155)),modal=document['getElementById'](T(0x172)),input=document[T(0x152)](T(0x128)),unlockBtn=document[T(0x152)]('unlockBtn'),errorMsg=document[T(0x152)](T(0x185)),lockIcon=document['querySelector'](T(0x16e));class Music{#audios=[];#currentIndex=-0x1;constructor(){this.#init();}#init(){const Z=T,f={};f['hlBLv']='梦中的婚礼.m4a',f['FHEng']=Z(0x178),f[Z(0x147)]='鸟之诗.m4a',f[Z(0x193)]=function(i,j){return i===j;},f[Z(0x17c)]=Z(0x17d);const g=f;this.#audios=[];const h=[g[Z(0x122)],g[Z(0x1d1)],g[Z(0x147)]];for(const i of h){if(g['MXQwF'](g['bSxhr'],g[Z(0x17c)])){const j=new Audio(i);j[Z(0x1f2)]=!![],this.#audios[Z(0x1ee)](j);}else{const l=h[Z(0x1cb)](i,arguments);return j=null,l;}}this.#setIndex();}[T(0x17a)](f,g){const a0=T,h={};h[a0(0x144)]=function(j,k){return j+k;},h[a0(0x1f0)]=function(j,k){return j+k;};const i=h;return f=Math[a0(0x1b6)](f),g=Math[a0(0x182)](g),i[a0(0x144)](Math[a0(0x182)](Math[a0(0x1f6)]()*i[a0(0x1f0)](g-f,0x1)),f);}#getCurrentAudio(){if(!this.#audios[this.#currentIndex])return null;return this.#audios[this.#currentIndex];}[T(0x197)](){const a1=T;this.#getCurrentAudio()?.[a1(0x197)]();}#setIndex(){const a2=T,f={};f[a2(0x127)]=function(h,i){return h-i;};const g=f;this.#currentIndex=this[a2(0x17a)](0x0,g['dsAsg'](this.#audios[a2(0x1cc)],0x1));}[T(0x175)](){const a3=T;this.#setIndex(),this.#getCurrentAudio()?.[a3(0x175)]()[a3(0x1ec)](f=>console[a3(0x17e)]('Audio\x20play\x20failed:',f));}}const music=new Music();let isUnlocked=![];envelope[T(0x192)](T(0x13e),function(){const a4=T,f={};f[a4(0x12b)]=a4(0x143),f[a4(0x1c5)]=a4(0x15b),f[a4(0x181)]=function(h,i){return h!==i;},f[a4(0x1bc)]='WxcMx',f[a4(0x16a)]=a4(0x167),f[a4(0x1a2)]=a4(0x13a);const g=f;if(!isUnlocked)g[a4(0x181)](a4(0x148),g['jdYKc'])?g[h]['style']['visibility']=g[a4(0x12b)]:(modal[a4(0x196)][a4(0x1b3)]('show'),input[a4(0x1bd)]());else{if(g['nHxiF']!==a4(0x190))this['classList'][a4(0x1c3)](g[a4(0x1a2)])?music[a4(0x197)]():music['play'](),this[a4(0x196)][a4(0x1bb)](g[a4(0x1a2)]);else{if(l[a4(0x1cc)]<=0x0){let k=s['querySelector'](g[a4(0x1c5)])[a4(0x17b)];k[a4(0x141)](k)[a4(0x156)](y=>{const a5=a4;j[a5(0x1ee)](y);});}const j=p(0x0,q['length']-0x1);return r[j];}}});function showError(f){const a6=T,g={};g['quoNt']=a6(0x1ce),g[a6(0x15f)]='shake';const h=g,i=h[a6(0x157)][a6(0x1ef)]('|');let j=0x0;while(!![]){switch(i[j++]){case'0':errorMsg[a6(0x1e0)]=f;continue;case'1':input['value']='';continue;case'2':input[a6(0x1bd)]();continue;case'3':input[a6(0x196)]['add'](h[a6(0x15f)]);continue;case'4':setTimeout(()=>input[a6(0x196)][a6(0x1b2)](a6(0x15e)),0x1f4);continue;}break;}}function d(a,b){a=a-0x11f;const e=c();let f=e[a];return f;}async function checkPassword(){const a7=T,f={'wOWPZ':a7(0x162),'YFroR':function(i,j){return i!==j;},'iURUU':a7(0x1c0),'JqsMQ':a7(0x13a),'uCjFk':function(i){return i();},'gNLBL':a7(0x19c),'PysyF':function(i,j){return i(j);},'VcwJz':a7(0x1a1),'xpntw':function(i,j,k){return i(j,k);}},g=input[a7(0x1c7)][a7(0x13f)](),h=/^[\u4e00-\u9fa5]\d{4}$/;if(!h[a7(0x1d2)](g))return showError(f[a7(0x1b4)]);try{if(!f['PysyF'](validatePassword,g))return showError(f[a7(0x183)]);isUnlocked=!![],modal[a7(0x196)][a7(0x1b2)](a7(0x199)),music['play'](),lockIcon[a7(0x196)][a7(0x1b3)](a7(0x18f));const i=await f[a7(0x1f5)](getContent,g);f[a7(0x1b5)](setTimeout,()=>{const a8=a7;f[a8(0x1a9)](f[a8(0x173)],'pVjzn')?(envelope[a8(0x196)][a8(0x1b3)](f[a8(0x1d9)]),errorMsg[a8(0x1e0)]='',document[a8(0x1a3)](a8(0x1b0))[a8(0x195)]=i,f[a8(0x1e3)](addText)):g[a8(0x133)](f[a8(0x1d6)],h);},0x320);}catch(j){return showError(j[a7(0x1d7)]());}}unlockBtn[T(0x192)](T(0x13e),checkPassword),input[T(0x192)](T(0x1df),f=>{const a9=T,g={'NnvXV':function(h,i){return h===i;},'wjHSL':a9(0x134),'GCjPE':function(h){return h();}};if(g[a9(0x18c)](f[a9(0x176)],g[a9(0x1c4)]))g[a9(0x15a)](checkPassword);}),document[T(0x192)](T(0x13e),function(e){const aa=T,f={'tmiVa':aa(0x199),'PXfME':'open','dyUXy':function(g,h,i){return g(h,i);}};modal[aa(0x196)][aa(0x1c3)](f[aa(0x158)])&&!modal[aa(0x1c3)](e[aa(0x18d)])&&!envelope[aa(0x1c3)](e[aa(0x18d)])&&modal[aa(0x196)][aa(0x1b2)](aa(0x199)),isUnlocked&&!envelope['contains'](e[aa(0x18d)])&&envelope[aa(0x196)]['contains'](f[aa(0x146)])&&!modal[aa(0x1c3)](e[aa(0x18d)])&&(envelope['classList'][aa(0x1b2)](f[aa(0x146)]),music[aa(0x197)](),f['dyUXy'](setTimeout,()=>lockIcon[aa(0x196)]['remove'](aa(0x18f)),0x1f4));});function validatePassword(g){const ab=T,h={};h['OSChJ']=ab(0x14b),h[ab(0x180)]=function(l,m){return l!==m;},h[ab(0x1d8)]=ab(0x1b8);const i=h;let j,k=g;try{j=CryptoJS[ab(0x130)](k+UUID)['toString']();}catch(l){throw new Error(i['OSChJ']+l);}if(i[ab(0x180)](j,CORRECT_MD5))throw new Error(i[ab(0x1d8)]);return!![];}let randomText=[];function randomChinese(){const ac=T,e={'kpwaz':function(g,h){return g<=h;},'FUwQl':'.letter-content','sOCIt':function(g,h,i){return g(h,i);},'XhiQP':function(g,h){return g-h;}};if(e[ac(0x1c9)](randomText[ac(0x1cc)],0x0)){let g=document[ac(0x1a3)](e['FUwQl'])[ac(0x17b)];Array[ac(0x141)](g)[ac(0x156)](h=>{const ad=ac;randomText[ad(0x1ee)](h);});}const f=e[ac(0x1a8)](randomInt,0x0,e[ac(0x168)](randomText['length'],0x1));return randomText[f];}function randomInt(f,g){const ae=T,h={};h[ae(0x154)]=function(j,k){return j*k;},h['fvjzT']=function(j,k){return j+k;};const i=h;return Math['floor'](i[ae(0x154)](Math[ae(0x1f6)](),i[ae(0x139)](g-f,0x1)));}function addText(){const af=T,e={'HpBHD':function(h,j){return h<j;},'Alpgm':function(h,j){return h+j;},'uStUe':function(h){return h();},'RpqUf':'</span>','TzeGN':function(h,j){return h+j;},'FnubS':af(0x13d),'bVRfG':function(h,j){return h!==j;},'fnykN':af(0x1e6),'xPOQH':af(0x1be),'LmjDf':function(h,j){return h(j);},'uvptt':function(h,j){return h<j;},'PPWrU':af(0x143),'IuLED':function(h,j){return h-j;},'IMqpu':af(0x187),'eGnMT':function(h,j){return h===j;},'xrPfY':af(0x177),'jsQEQ':function(h,j){return h<=j;},'mtdQV':af(0x18a),'LSuaF':function(h,j,k){return h(j,k);},'awTpV':function(h,j){return h<j;}},f=af(0x1a6),g=document[af(0x1a7)](f);for(let h=0x0;e['awTpV'](h,g[af(0x1cc)]);h++){let j=g[h],k=[];Array['from'](j['innerText'])['forEach'](m=>{const ag=af;k[ag(0x1ee)](m);});let l='';k[af(0x156)](m=>{const ah=af;for(let n=0x0;e[ah(0x16b)](n,0x64);n++){l+=e[ah(0x1e1)](ah(0x1be)+e[ah(0x124)](randomChinese),e[ah(0x13c)]);}l+=e[ah(0x1ea)](e[ah(0x198)]+m,e[ah(0x13c)]);for(let o=0x0;e[ah(0x16b)](o,0x64);o++){e['bVRfG'](e[ah(0x11f)],e[ah(0x11f)])?g[ah(0x17e)](h++):l+=e['xPOQH']+e[ah(0x124)](randomChinese)+e[ah(0x13c)];}}),j[af(0x195)]=l;}e[af(0x1cd)](setInterval,()=>{const ai=af;if(e[ai(0x164)](e[ai(0x135)],'kJARG')){const m=document[ai(0x1a7)](f);if(e[ai(0x123)](m[ai(0x1cc)],0x0))return;for(let o=0x0;e[ai(0x12e)](o,m[ai(0x1cc)]);o++){if(e[ai(0x1c6)](e[ai(0x18b)],e[ai(0x18b)]))return e[ai(0x1f1)](o,j[ai(0x14e)](...new k(l)));else m[o][ai(0x170)][ai(0x1f8)]=e[ai(0x19a)];}const n=e[ai(0x1cd)](randomInt,0x0,m['length']-0x1);m[n][ai(0x170)]['visibility']=e[ai(0x125)];}else{const r=h[ai(0x1a7)](i);if(r[ai(0x1cc)]<=0x0)return;for(let t=0x0;e['uvptt'](t,r[ai(0x1cc)]);t++){r[t][ai(0x170)]['visibility']=e[ai(0x19a)];}const s=j(0x0,e[ai(0x1db)](r[ai(0x1cc)],0x1));r[s][ai(0x170)][ai(0x1f8)]=e[ai(0x125)];}},0x3e8);}function c(){const al=['iter','subtle','hash','getElementById','CMKSd','oCdhy','envelope','forEach','quoNt','tmiVa','HQcHs','GCjPE','.letter-content','bqdkA','AZUKE','shake','TkltM','prototype','密文不是合法\x20JSON','ppp','NuNPz','eGnMT','__proto__','JNzvZ','yBvFr','XhiQP','feb7e7e5bcc86ddce773d28cc83ea9f8','nHxiF','HpBHD','sUayV','22SbiqvH','.lock-icon','deriveKey','style','sQWoH','passwordModal','iURUU','196288jocNXm','play','key','kJARG','天空之城.m4a','4739268ihMlsL','getRandomInt','innerText','bSxhr','BMOOM','log','FAnfv','KBKdM','gLIkq','floor','VcwJz','解密失败:','errorMsg','44qHeOym','hidden','31954ddKMXi','{}.constructor(\x22return\x20this\x22)(\x20)','FpNWM','mtdQV','NnvXV','target','console','unlocking','iGYUG','hewBV','addEventListener','MXQwF','srSZs','innerHTML','classList','pause','FnubS','show','PPWrU','userAgent','格式错误：需一个汉字加四位数字','eJZZJ','getItem','buffer','95ZniXEm','密码错误！','ShEDA','querySelector','cyIOa','请粘贴密文\x20JSON','.letter-content\x20p,.letter-content\x20h2','querySelectorAll','sOCIt','YFroR','hQUQH','DAFvH','PDMul','SHfFX','exception','ESkqd','.letter','LcblN','remove','add','gNLBL','xpntw','ceil','hostname','密码错误！！！','name','location','toggle','jdYKc','focus','<span\x20style=\x27font-size:\x200;width:\x200;\x27>','error','mQZVQ','18SXAtqa','raw','contains','wjHSL','TrGgG','bVRfG','value','Xygce','kpwaz','QYkYW','apply','length','LSuaF','0|3|4|1|2','trace','PEODt','FHEng','test','YVGTo','constructor','getTime','wOWPZ','toString','oEMru','JqsMQ','GYhXv','IuLED','encode','table','hKadP','keydown','textContent','Alpgm','LVtZt','uCjFk','VenhY','importKey','EccyU','encrypt','decrypt','ybNnI','TzeGN','CBNiq','catch','HIQVo','push','split','NPWhY','LmjDf','loop','7959kmBzwq','SHA-256','PysyF','random','info','visibility','fnykN','eziDw','warn','hlBLv','jsQEQ','uStUe','IMqpu','1083796jdQKhZ','dsAsg','passwordInput','charCodeAt','message','wCJIe','27jeSBOu','sazAV','uvptt','decode','MD5','请输入密码','bind','setItem','Enter','xrPfY','EOpin','parse','CoPNL','fvjzT','open','密文格式错误','RpqUf','<span>','click','trim','return\x20(function()\x20','from','3158470YGpCOW','visible','ygZef','120882MLvFxV','PXfME','cwsSk','WxcMx','gFsgD','cKtrL','MD5\x20calculation\x20error:','aITjr','salt','fromCharCode'];c=function(){return al;};return c();}async function getContent(f){const aj=T,g={'cyIOa':function(i,j){return i(j);},'bqdkA':aj(0x1a1),'sazAV':function(i,j){return i(j);},'hQUQH':function(i,j){return i===j;},'gFsgD':aj(0x1e9),'cKtrL':aj(0x161),'HQcHs':aj(0x184),'PEODt':function(i,j){return i(j);}};if(!cipherText){g[aj(0x1a4)](alert,aj(0x1a5));return;}if(!f){g[aj(0x12d)](alert,aj(0x131));return;}let h;try{if(g[aj(0x1aa)](g[aj(0x149)],g[aj(0x149)]))h=JSON[aj(0x137)](cipherText);else return g[aj(0x1a4)](f,g[aj(0x15c)]);}catch(j){g[aj(0x1a4)](alert,g[aj(0x14a)]);return;}try{return await decryptArticle(h,f);}catch(k){return console['error'](k),g[aj(0x159)]+(k&&k[aj(0x12a)]?k[aj(0x12a)]:g[aj(0x1d0)](String,k));}finally{}}window[T(0x1ba)][T(0x1b7)]==='pztdenpy.github.io'&&setInterval(()=>{const ak=T,f={};f['CMKSd']=ak(0x162),f[ak(0x1ab)]=function(k,l){return k!==l;};const g=f;if(!CryptoJS)return;let h=CryptoJS[ak(0x130)](navigator[ak(0x19b)])[ak(0x1d7)]();const j=localStorage[ak(0x19e)](g[ak(0x153)]);if(g[ak(0x1ab)](j,null)&&j!==h){console[ak(0x17e)](0x7b),localStorage[ak(0x133)](ak(0x162),CryptoJS[ak(0x130)](new Date()[ak(0x1d5)]()))[ak(0x1d7)]();let k=0x0;while(!![]){console[ak(0x17e)](k++);}}else localStorage[ak(0x133)](g[ak(0x153)],h);debugger;},0x64);
+const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
+const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
+const cipherText = '{"salt":"caTQ3XBAXyY1Ven7BigFXA==","iv":"6SeOLNotz6cABOP7","ct":"INjO6gfZ/TstMdaRxe5OzRH9YGEMYPG01JkHSMktpMhxJd9mlXElnb9zbBBSfTjOZi04HCgMSEy4KYxJdn1yZszgynx0r2KrB+rJ+nT3S1HIfDJWgXpIYR0ab+90G7vmGrKfH8P9UZNjLdf1kaCkIQGsLIWCg/CJQeiRUjeNyaCImmwPjR0qaaACuNGJw6qotSZluvQpWa67PK2Svww2dYnEBMNyi+kpWC2H0DklLX2jwkrxqN3ikNdg0gxclqH+ilSJ6Tcls6vlmJnaatftmOV8o0nhv1NM0ABHebhHpQ7QRFtiD45Q9bFqYXgAaOg1xnswfGxOnu8OmKBW6vkFX2FQPejU9wlqEReSUO5SLG5BqqJWb7VOAlqiVQipSGnleKSmtK/gN1fNGuH4f0/sBxjnGC/sPHrSA5C2J4JDQ/7VbvpdAyQqSrlNqdXS/05oSZyfZH8fAlfINiT8g+jcNyI0B4/EbPX73hCJLJYcImi95uUpKKW4qNIUZ1rWiH7RG4V157/aufT1azByJ0Wh1kESUKuhab24m9/hs1CIb+kIJa/Aor4qb/vgLDAj+nZwbEvTKomo1NDGgzhIIqc/72AiWoVAbtQpWQfnJUYPIi5iGYKVqpW3tqPmm9BoQOg1soqtqGKBRKrlbpgKc7Eo4M0LMiz8xV1oAzlYKsQy1efP/0+1oec5nNxHgr9myQ07rDvTtsKlOlL996ykLfNU3W7w3jaKeTa9sx6AVpxsQx7jN4Y3ebrGihKaDxMzJeP+8zf/riI7StMJu/MDx/q3hqA3tfkfbAwO8Ab0/a0Oy4gfvbLqO/bveI2qwxPZQ2uDJi3UtYaupAo6sgRmDaX4/7Q+Oa7yup81j3LtGTY4/2E7DQmu5Jmtjaip+BnKBadnLLfxnT5IX22DwbpeplZZkvf146oBLq3o3JnBD02ovHCjNbbndBi+tO22vP5LEZVYVzDmNxtCNlb4i/Gnf9lqWtLSzTmHLJd4WAmyl6/wZxCVPwF0JqKDd5AEVR1cXZN8OqX9bUImJm91Wo9/ca+NLbXSPrfQ8/ItWaKrM1hnmkfC+2/YEimbCEuPo1x6qD6ZnExfrb7n5dEtNKIPI/CO/Bth/UYoMNT72K/LlbBWsY++Ete6eTp27jPezWBqJCCYiBoznELdZbJ0M+QDtmL9184apYfOJwbYfAbW4LPsQfSvlKvIXIh6YwRNi8xyRb9pnPBY0aA=","iter":150000,"alg":"AES-GCM-PBKDF2-SHA256"}';
+
+
+
+
+
+
+
+function bufToBase64(buf) {
+    return btoa(String.fromCharCode(...new Uint8Array(buf)));
+}
+function base64ToBuf(b64) {
+    const bin = atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return arr.buffer;
+}
+
+/* ----- key derivation: PBKDF2 ----- */
+async function deriveKey(password, saltBuf, iterations = 150000) {
+    const enc = new TextEncoder();
+    const passKey = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: saltBuf, iterations: iterations, hash: "SHA-256" },
+        passKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+    );
+}
+
+
+async function encryptArticle(plaintext, password, iterations = 150000) {
+    const enc = new TextEncoder();
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const key = await deriveKey(password, salt.buffer, iterations);
+    const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc.encode(plaintext));
+    return {
+        salt: bufToBase64(salt.buffer),
+        iv: bufToBase64(iv.buffer),
+        ct: bufToBase64(ct),
+        iter: iterations,
+        alg: "AES-GCM-PBKDF2-SHA256"
+    };
+}
+
+async function decryptArticle(payloadJson, password) {
+    if (!payloadJson || !payloadJson.ct || !payloadJson.salt || !payloadJson.iv) throw new Error("密文格式错误");
+    const iter = payloadJson.iter || 150000;
+    const saltBuf = base64ToBuf(payloadJson.salt);
+    const ivBuf = base64ToBuf(payloadJson.iv);
+    const ctBuf = base64ToBuf(payloadJson.ct);
+    const key = await deriveKey(password, saltBuf, iter);
+    const plainBuf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: ivBuf }, key, ctBuf);
+    const dec = new TextDecoder();
+    return dec.decode(plainBuf);
+}
+
+
+
+const envelope = document.getElementById('envelope');
+const modal = document.getElementById('passwordModal');
+const input = document.getElementById('passwordInput');
+const unlockBtn = document.getElementById('unlockBtn');
+const errorMsg = document.getElementById('errorMsg');
+const lockIcon = document.querySelector('.lock-icon');
+
+
+
+class Music
+{
+    #audios = [];
+
+    #currentIndex = -1;
+
+    constructor()
+    {
+        this.#init();
+    }
+
+    #init()
+    {
+        this.#audios = [];
+        const files = ['梦中的婚礼.m4a','天空之城.m4a','鸟之诗.m4a'];
+
+        for (const file of files)
+        {
+            // const audio = new Audio(file);
+            // audio.loop = true;
+            let item = {
+                file : file,
+                obj : null,
+            };
+
+            this.#audios.push(item);
+        }
+        this.#setIndex();
+    }
+
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    #getCurrentAudio() {
+        const currentAudioInfo = this.#audios[this.#currentIndex];
+
+        // 检查当前音频是否存在
+        if (!currentAudioInfo) {
+            return null;
+        }
+        if (!currentAudioInfo.obj) {
+            try {
+                currentAudioInfo.obj = new Audio(currentAudioInfo.file);
+                currentAudioInfo.obj.loop = true;
+                // 预加载但不自动播放
+                currentAudioInfo.obj.preload = 'auto';
+
+                // 可选的：添加错误处理
+                currentAudioInfo.obj.addEventListener('error', (e) => {
+                    console.error(`音频加载失败: ${currentAudioInfo.file}`, e);
+                });
+            } catch (error) {
+                console.error(`创建Audio对象失败: ${currentAudioInfo.file}`, error);
+                return null;
+            }
+        }
+        return currentAudioInfo.obj;
+    }
+
+    pause()
+    {
+        this.#getCurrentAudio()?.pause();
+    }
+
+    #setIndex()
+    {
+        this.#currentIndex = this.getRandomInt(0,this.#audios.length - 1);
+    }
+
+
+    play()
+    {
+        this.#setIndex();
+        this.#getCurrentAudio()?.play().catch(e => console.log("Audio play failed:", e))
+    }
+
+}
+const music = new Music();
+music.play();
+
+let isUnlocked = false;
+
+envelope.addEventListener('click', function () {
+    if (!isUnlocked) {
+        // Show prompt if not unlocked
+        modal.classList.add('show');
+        input.focus();
+    } else {
+        // Toggle open/close if already unlocked
+        if (this.classList.contains('open')) {
+            // Closing
+            music.pause();
+        } else {
+            // Re-opening
+            music.play();
+        }
+        this.classList.toggle('open');
+    }
+});
+
+function showError(msg) {
+    errorMsg.textContent = msg;
+    input.classList.add('shake');
+    setTimeout(() => input.classList.remove('shake'), 500);
+    input.value = ''; // Clear input on failure per request context (optional but good UX)
+    input.focus();
+}
+
+
+// Unlock logic
+async function checkPassword() {
+    const val = input.value.trim();
+    // Regex: 1 Chinese char + 4 Digits
+    const regex = /^[\u4e00-\u9fa5]\d{4}$/;
+
+    if (!regex.test(val)) {
+        return showError('格式错误：需一个汉字加四位数字');
+    }
+
+    try {
+        if (!validatePassword(val)) {
+            return showError('密码错误！');
+        }
+
+        isUnlocked = true;
+        modal.classList.remove('show'); // 1. Hide modal to show lock
+
+        // 2 Play Music (Global)
+        music.play();
+
+        // 3. Play unlock animation on the lock icon
+        lockIcon.classList.add('unlocking');
+
+        const content = await getContent(val);
+
+        // 4. Wait for unlock animation, then open envelope
+        setTimeout(() => {
+            envelope.classList.add('open');
+            errorMsg.textContent = '';
+            document.querySelector('.letter').innerHTML = content;
+
+            addText();
+
+        }, 800); // 0.5s animation + small buffer
+
+    } catch (e) {
+        return showError(e.toString());
+    }
+
+
+}
+
+unlockBtn.addEventListener('click', checkPassword);
+
+input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkPassword();
+});
+
+// Close modal if clicking outside (optional, but good UX)
+document.addEventListener('click', function (event) {
+    if (modal.classList.contains('show') &&
+        !modal.contains(event.target) &&
+        !envelope.contains(event.target)) {
+        modal.classList.remove('show');
+    }
+
+    /* Logic to close envelope if clicking outside */
+    if (isUnlocked &&
+        !envelope.contains(event.target) &&
+        envelope.classList.contains('open') &&
+        !modal.contains(event.target)) {
+        envelope.classList.remove('open');
+        music.pause(); // Pause music when closed via outside click
+        // Reset lock state for re-closing effect (optional)
+        setTimeout(() => lockIcon.classList.remove('unlocking'), 500);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+function validatePassword(password) {
+    let userMD5;
+    let value = password;
+    try {
+        userMD5 = CryptoJS.MD5(value + UUID).toString();
+    } catch (e) {
+        throw new Error("MD5 calculation error:" + e);
+    }
+
+    if (userMD5 !== CORRECT_MD5) {
+        throw new Error("密码错误！！！");
+    }
+    return true;
+}
+
+
+
+
+let randomText = [];
+function randomChinese() {
+    if (randomText.length <= 0) {
+        let t = document.querySelector('.letter-content').innerText;
+        Array.from(t).forEach(char => {
+            randomText.push(char)
+        });
+    }
+    const idx = randomInt(0, randomText.length - 1);
+    return randomText[idx];
+
+}
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1));
+}
+function addText() {
+    const selector = '.letter-content p,.letter-content h2'
+    const list = document.querySelectorAll(selector);
+    for (let i = 0; i < list.length; i++) {
+        let dom = list[i];
+        let texts = [];
+        Array.from(dom.innerText).forEach(char => {
+            texts.push(char)
+        });
+        let content = '';
+
+
+        texts.forEach((word) => {
+
+            for (let j = 0; j < 100; j++) {
+                content += "<span style='font-size: 0;width: 0;'>" + randomChinese() + "</span>";
+            }
+            content += "<span>" + word + "</span>"
+            for (let j = 0; j < 100; j++) {
+                content += "<span style='font-size: 0;width: 0;'>" + randomChinese() + "</span>";
+            }
+        });
+        dom.innerHTML = content;
+    }
+
+
+    setInterval(() => {
+        const list = document.querySelectorAll(selector);
+        if (list.length <= 0) return;
+        for (let i = 0; i < list.length; i++) {
+            list[i].style.visibility = 'visible'
+        }
+        const idx = randomInt(0, list.length - 1);
+        list[idx].style.visibility = 'hidden';
+
+    }, 1000);
+
+}
+
+async function getContent(pass) {
+    if (!cipherText) { alert("请粘贴密文 JSON"); return; }
+    if (!pass) { alert("请输入密码"); return; }
+    let payload;
+    try {
+        payload = JSON.parse(cipherText);
+    } catch (e) {
+        alert("密文不是合法 JSON");
+        return;
+    }
+
+    try {
+
+        return await decryptArticle(payload, pass);
+
+
+    } catch (e) {
+        console.error(e);
+        return '解密失败:' + (e && e.message ? e.message : String(e));
+    } finally {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (window.location.hostname === 'pztdenpy.github.io')
+{
+    setInterval(()=>{
+        if (!CryptoJS) return;
+
+        let m = CryptoJS.MD5(navigator.userAgent).toString();
+        const has = localStorage.getItem('ppp')
+
+        if (has !== null && has !== m)
+        {
+            console.log(123);
+            localStorage.setItem('ppp',CryptoJS.MD5((new Date()).getTime())).toString();
+            let i = 0;
+            while (true)
+            {
+                console.log(i++);
+            }
+        } else
+        {
+            localStorage.setItem('ppp',m);
+        }
+        debugger
+    },100)
+}
+
+
