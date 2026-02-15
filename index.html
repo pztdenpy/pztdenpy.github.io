@@ -1,14 +1,469 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>特别的信件</title>
-    <script type="module" crossorigin src="/assets/index-vmgOC63b.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CwEAr6kn.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+    <style>
+        :root {
+            --bg-color: #2c3e50;
+            --envelope-color: #f1c40f;
+            --envelope-shadow: rgba(0, 0, 0, 0.2);
+            --card-color: #ecf0f1;
+            --text-color: #34495e;
+            --heart-color: #e74c3c;
+            --anim-speed: 0.6s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Premium Soft Gradient: Light Purple to Blue */
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .envelope {
+            position: relative;
+            width: min(90vw, 800px);
+            /* Massive responsive width */
+            aspect-ratio: 1.6;
+            /* Maintain ratio */
+            background-color: #f39c12;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: transform var(--anim-speed) ease;
+        }
+
+        /* Front flaps - using clip-path for responsiveness */
+        .flap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            /* Let clicks pass through to container */
+        }
+
+        .flap.left {
+            background-color: var(--envelope-color);
+            clip-path: polygon(0 0, 50% 50%, 0 100%);
+        }
+
+        .flap.right {
+            background-color: var(--envelope-color);
+            clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+        }
+
+        .flap.bottom {
+            background-color: #f39c12;
+            /* Slightly darker */
+            clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+            z-index: 4;
+            transform-origin: bottom;
+        }
+
+        .flap.top {
+            background-color: #f5b041;
+            clip-path: polygon(0 0, 100% 0, 50% 55%);
+            /* 55% to overlap slightly */
+            z-index: 5;
+            transform-origin: top;
+            transition: transform var(--anim-speed) ease, z-index var(--anim-speed) linear;
+        }
+
+        .password-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Removed initial scale for simpler display transition */
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            z-index: 20;
+            text-align: center;
+            width: 85%;
+            max-width: 320px;
+            display: none;
+            /* Hides it completely by default */
+        }
+
+        .password-modal.show {
+            display: block;
+            /* Shows it on click */
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .password-modal h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Removed specific H3/P selectors if user wanted them cleaner,
+           but retaining structure for now.
+           Will ensure input/button styling remains.
+        */
+
+        .password-modal input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            /* Increased margin */
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .password-modal input:focus {
+            border-color: #3498db;
+        }
+
+        .password-modal button {
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+
+        .password-modal button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 197, 252, 0.4);
+        }
+
+        .password-modal button:active {
+            transform: translateY(0);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            min-height: 20px;
+            /* Use min-height to maintain space */
+            margin-bottom: 10px;
+        }
+
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 90%;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            z-index: 2;
+            transition: bottom var(--anim-speed) ease, z-index var(--anim-speed) linear;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            /* Default left alignment */
+        }
+
+        .letter-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .letter h2 {
+            font-size: 2rem;
+            color: var(--heart-color);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            /* Title centered */
+        }
+
+        .letter p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            font-weight: 500;
+            text-align: left;
+            /* Content left aligned */
+        }
+
+        /* Lock Icon - Centered */
+        .lock-icon {
+            position: absolute;
+            top: 55%;
+            /* Slightly lower to center visually on flap */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 35px;
+            background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+            z-index: 6;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Shackle */
+        .lock-icon::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 20px;
+            border: 4px solid #f1c40f;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+            z-index: -1;
+        }
+
+        /* Keyhole */
+        .lock-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .container.open .lock-icon {
+            opacity: 0;
+        }
+
+        /* Animation States */
+
+        /* Step 1: Open Top Flap */
+        .container.open .flap.top {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        /* Step 2: Slide Letter Up (delayed) */
+        .container.open .letter {
+            bottom: 100px;
+            /* Moves up out of envelope */
+            z-index: 6;
+            /* Moves above flaps */
+            height: 250px;
+            /* Expands slightly */
+            transition-delay: 0.2s;
+            /* Wait for flap to open */
+        }
+
+        /* Unlock Animation */
+        .lock-icon.unlocking::before {
+            transform: translateX(-50%) translateY(-10px);
+            /* Shackle moves up */
+            transition: transform 0.5s ease;
+        }
+
+        .lock-icon.unlocking {
+            /* Shake slightly while unlocking */
+            animation: lockShake 0.5s ease;
+        }
+
+        @keyframes lockShake {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%);
+            }
+
+            25% {
+                transform: translate(-52%, -50%);
+            }
+
+            75% {
+                transform: translate(-48%, -50%);
+            }
+        }
+
+        .container.open .lock-icon {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Special handling for letter expansion - Maximize it */
+        .container.open .letter {
+            bottom: 50%;
+            transform: translate(-50%, 50%);
+            transition: bottom 0.6s ease 0.3s, transform 0.6s ease 0.3s, height 0.6s ease 0.3s, z-index 0s linear 0.3s;
+            height: 80vh;
+            width: min(90vw, 800px);
+            /* Match envelope width logic */
+            max-width: 800px;
+            max-height: 800px;
+            z-index: 100;
+            /* Ensure strictly on top */
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Hide heart when open */
+        .container.open .heart {
+            opacity: 0;
+        }
+
+        /* Show content */
+        .container.open .letter-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Overlay Background when open to focus */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Slightly darker for better contrast with white letter */
+            backdrop-filter: blur(5px);
+            /* Add blur for premium feel */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 5;
+        }
+
+        .container.open {
+            z-index: 10;
+            /* CRITICAL FIX: Ensure container is above overlay */
+        }
+
+        .container.open~.overlay {
+            opacity: 1;
+            pointer-events: auto;
+            /* Enable clicking overlay to close if desired, though js handles container click */
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                transform: scale(0.9);
+            }
+
+            .container.open .letter {
+                width: 95vw;
+                max-width: none;
+                height: 70vh;
+                /* Taller on mobile */
+                transform: translate(-50%, 55%);
+            }
+        }
+
+        /* Mobile adjustments REMOVED hardcoded px sizes, relying on vw */
+        @media (max-width: 600px) {
+
+            /* Flap border adjustments not needed with clip-path! */
+
+            .container.open .letter {
+                width: 94vw;
+                /* Wider on mobile */
+                height: 85vh;
+                /* Taller on mobile */
+                transform: translate(-50%, 50%);
+                padding: 20px;
+                /* Smaller padding on mobile */
+            }
+
+            .letter h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .letter p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="envelope">
+        <div class="envelope">
+            <div class="flap top"></div>
+            <div class="flap right"></div>
+            <div class="flap bottom"></div>
+            <div class="flap left"></div>
+
+            <div class="letter">
+                <div class="letter-content">
+                    F12没得看
+                </div>
+            </div>
+        </div>
+        <div class="lock-icon"></div>
+    </div>
+
+    <div class="overlay"></div>
+
+
+    <div class="password-modal" id="passwordModal">
+        <h3>请输入口令</h3>
+        <p style="font-size: 15px;">开启这封特别的信件需要口令<br>(提示：名字第二个字 + 身份证后4位)</p>
+        <input type="text" id="passwordInput" placeholder="例如：福2025" maxlength="5">
+        <div class="error-msg" id="errorMsg"></div>
+        <button id="unlockBtn">开启</button>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
 </html>
+<script src="crypto-js.min.js"></script>
+
+<script src="index.js"></script>
