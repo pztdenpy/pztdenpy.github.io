@@ -178,6 +178,9 @@ async function getContent(pass) {
     }
 }
 
+// 确保map变量在全局作用域中可用
+window.map = map;
+
 Vue.component('password-modal-component', {
     props: {
         show: {
