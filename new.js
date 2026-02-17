@@ -1,10 +1,11 @@
+import convert from './words.js';
+
 const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
 const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
 const cipherText = '{"salt":"caTQ3XBAXyY1Ven7BigFXA==","iv":"6SeOLNotz6cABOP7","ct":"INjO6gfZ/TstMdaRxe5OzRH9YGEMYPG01JkHSMktpMhxJd9mlXElnb9zbBBSfTjOZi04HCgMSEy4KYxJdn1yZszgynx0r2KrB+rJ+nT3S1HIfDJWgXpIYR0ab+90G7vmGrKfH8P9UZNjLdf1kaCkIQGsLIWCg/CJQeiRUjeNyaCImmwPjR0qaaACuNGJw6qotSZluvQpWa67PK2Svww2dYnEBMNyi+kpWC2H0DklLX2jwkrxqN3ikNdg0gxclqH+ilSJ6Tcls6vlmJnaatftmOV8o0nhv1NM0ABHebhHpQ7QRFtiD45Q9bFqYXgAaOg1xnswfGxOnu8OmKBW6vkFX2FQPejU9wlqEReSUO5SLG5BqqJWb7VOAlqiVQipSGnleKSmtK/gN1fNGuH4f0/sBxjnGC/sPHrSA5C2J4JDQ/7VbvpdAyQqSrlNqdXS/05oSZyfZH8fAlfINiT8g+jcNyI0B4/EbPX73hCJLJYcImi95uUpKKW4qNIUZ1rWiH7RG4V157/aufT1azByJ0Wh1kESUKuhab24m9/hs1CIb+kIJa/Aor4qb/vgLDAj+nZwbEvTKomo1NDGgzhIIqc/72AiWoVAbtQpWQfnJUYPIi5iGYKVqpW3tqPmm9BoQOg1soqtqGKBRKrlbpgKc7Eo4M0LMiz8xV1oAzlYKsQy1efP/0+1oec5nNxHgr9myQ07rDvTtsKlOlL996ykLfNU3W7w3jaKeTa9sx6AVpxsQx7jN4Y3ebrGihKaDxMzJeP+8zf/riI7StMJu/MDx/q3hqA3tfkfbAwO8Ab0/a0Oy4gfvbLqO/bveI2qwxPZQ2uDJi3UtYaupAo6sgRmDaX4/7Q+Oa7yup81j3LtGTY4/2E7DQmu5Jmtjaip+BnKBadnLLfxnT5IX22DwbpeplZZkvf146oBLq3o3JnBD02ovHCjNbbndBi+tO22vP5LEZVYVzDmNxtCNlb4i/Gnf9lqWtLSzTmHLJd4WAmyl6/wZxCVPwF0JqKDd5AEVR1cXZN8OqX9bUImJm91Wo9/ca+NLbXSPrfQ8/ItWaKrM1hnmkfC+2/YEimbCEuPo1x6qD6ZnExfrb7n5dEtNKIPI/CO/Bth/UYoMNT72K/LlbBWsY++Ete6eTp27jPezWBqJCCYiBoznELdZbJ0M+QDtmL9184apYfOJwbYfAbW4LPsQfSvlKvIXIh6YwRNi8xyRb9pnPBY0aA=","iter":150000,"alg":"AES-GCM-PBKDF2-SHA256"}';
 
 let mapText = '{"salt":"al1kJfaGodNq8DCsjzXlbw==","iv":"hAz8DPsVu+U4qrDk","ct":"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","iter":150000,"alg":"AES-GCM-PBKDF2-SHA256"}';
 
-let map = {};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -155,10 +156,8 @@ async function getContent(pass) {
     }
     localStorage.setItem(navigator.userAgent, pass);
     let payload;
-    let payload1;
     try {
         payload = JSON.parse(cipherText);
-        payload1 = JSON.parse(mapText);
     } catch (e) {
         const errorMsg = "密文不是合法 JSON: " + (e && e.message ? e.message : String(e));
         alert(errorMsg);
@@ -167,7 +166,6 @@ async function getContent(pass) {
 
     try {
         const res = await decryptArticle(payload, pass);
-        map = JSON.parse((await decryptArticle(payload1, pass)));
         return res;
     } catch (e) {
         console.error(e);
@@ -177,9 +175,6 @@ async function getContent(pass) {
 
     }
 }
-
-// 确保map变量在全局作用域中可用
-window.map = map;
 
 Vue.component('password-modal-component', {
     props: {
@@ -281,14 +276,14 @@ window.vueApp = new Vue({
         timerInterval: null
     },
     mounted() {
-       
-        
+
+
         // 从 localStorage 中加载之前保存的阅读时间
         const savedReadingTime = localStorage.getItem('readingTime');
         if (savedReadingTime) {
             this.readingTime = parseInt(savedReadingTime, 10);
         }
-        
+
         const savedPassword = localStorage.getItem(navigator.userAgent);
         if (savedPassword) {
             this.handlePasswordSubmit(savedPassword, false);
@@ -354,7 +349,9 @@ window.vueApp = new Vue({
                     this.errorMessage = '';
                     this.letterContent = content;
 
-                    this.addText();
+                    this.$nextTick(() => {
+                        this.addText();
+                    });
                 }, 800);
             } catch (e) {
                 this.errorMessage = e.toString();
@@ -390,24 +387,16 @@ window.vueApp = new Vue({
             this.processText(indexs, els);
         },
         async processText(indexs, els) {
-            while (indexs.length > 0) {
+            while (indexs.length > 0)
+            {
                 let index = indexs.pop();
                 const el = els[index];
-                await sleep(1500);
+                await sleep(1000);
                 el.innerText = this.toMars(el.innerText);
             }
         },
         toMars(text) {
-            let res = '';
-            Array.from(text).forEach(char => {
-                if (!map[char]) {
-                    res += char;
-                    return;
-                }
-                let arr = map[char];
-                res += arr[this.getRandomInt(0, arr.length - 1)];
-            });
-            return res;
+            return convert(text, 3);
         },
         getRandomInt(min, max) {
             min = Math.ceil(min);
@@ -419,7 +408,7 @@ window.vueApp = new Vue({
             if (this.timerInterval) {
                 clearInterval(this.timerInterval);
             }
-            
+
             let counter = 0;
             // 每秒钟增加阅读时间
             this.timerInterval = setInterval(() => {
