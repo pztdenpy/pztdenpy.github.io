@@ -74,6 +74,7 @@ class Music {
                 file: file,
                 obj: null,
             };
+            this.loadAndCacheAudio(file)
             this.#audios.push(item);
         }
         this.#setIndex();
