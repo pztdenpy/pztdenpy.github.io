@@ -2,6 +2,7 @@
 
 const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
 const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
+let convert = null;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -306,7 +307,7 @@ window.vueApp = new Vue({
         }
     },
     methods: {
-        handleEnvelopeClick() {
+        async handleEnvelopeClick() {
             console.log('handleEnvelopeClick called');
             console.log('isUnlocked:', this.isUnlocked);
             console.log('showPasswordModal before:', this.showPasswordModal);
@@ -325,6 +326,10 @@ window.vueApp = new Vue({
                 } else {
                     if (!this.isErrorContent) {
                         music.play();
+                    }
+                    if (!convert) {
+                        const { default: convertModule } = await import('./words.js');
+                        convert = convertModule;
                     }
                 }
                 this.isEnvelopeOpen = !this.isEnvelopeOpen;
@@ -349,10 +354,15 @@ window.vueApp = new Vue({
 
                 const content = await getContent(val);
 
-                setTimeout(() => {
+                setTimeout(async () => {
                     this.isUnlocked = true;
                     this.isUnlocking = false;
                     this.isErrorContent = false;
+
+                    if (!convert) {
+                        const { default: convertModule } = await import('./words.js');
+                        convert = convertModule;
+                    }
 
                     if (open) {
                         this.isEnvelopeOpen = true;
@@ -426,7 +436,10 @@ window.vueApp = new Vue({
             }
         },
         async toMars(text) {
-            const { default: convert } = await import('./words.js');
+            if (!convert) {
+                const { default: convertModule } = await import('./words.js');
+                convert = convertModule;
+            }
             return convert(text, 3);
         },
         getRandomInt(min, max) {
@@ -486,6 +499,10 @@ document.addEventListener('copy', async function (e) {
     const selection = window.getSelection().toString();
     if (!selection) return;
     e.preventDefault();
-    const marsText = await window.vueApp.toMars(selection);
+    if (!convert) {
+        const { default: convertModule } = await import('./words.js');
+        convert = convertModule;
+    }
+    const marsText = convert(selection, 3);
     e.clipboardData.setData('text/plain', marsText);
 });
