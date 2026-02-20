@@ -85,7 +85,22 @@ class Music {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    #getCurrentAudio() {
+    async loadAndCacheAudio(url) {
+        const cache = await caches.open("audio-cache");
+
+        let response = await cache.match(url);
+
+        if (!response) {
+            response = await fetch(url);
+            await cache.put(url, response.clone());
+        }
+
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        return blobUrl;
+    }
+
+    async #getCurrentAudio() {
         const currentAudioInfo = this.#audios[this.#currentIndex];
 
         if (!currentAudioInfo) {
@@ -93,7 +108,8 @@ class Music {
         }
         if (!currentAudioInfo.obj) {
             try {
-                currentAudioInfo.obj = new Audio(currentAudioInfo.file);
+                const blobUrl = await this.loadAndCacheAudio(currentAudioInfo.file);
+                currentAudioInfo.obj = new Audio(blobUrl);
                 currentAudioInfo.obj.loop = true;
                 currentAudioInfo.obj.preload = 'auto';
 
@@ -108,17 +124,17 @@ class Music {
         return currentAudioInfo.obj;
     }
 
-    pause() {
-        this.#getCurrentAudio()?.pause();
+    async pause() {
+        (await this.#getCurrentAudio())?.pause();
     }
 
     #setIndex() {
         this.#currentIndex = this.getRandomInt(0, this.#audios.length - 1);
     }
 
-    play() {
+    async play() {
         this.#setIndex();
-        this.#getCurrentAudio()?.play().catch(e => console.log("Audio play failed:", e));
+        (await this.#getCurrentAudio())?.play().catch(e => console.log("Audio play failed:", e));
     }
 }
 
