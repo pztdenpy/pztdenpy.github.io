@@ -1,8 +1,7 @@
-import convert from './words.js';
+
 
 const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
 const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
-const cipherText = '{"salt":"caTQ3XBAXyY1Ven7BigFXA==","iv":"6SeOLNotz6cABOP7","ct":"INjO6gfZ/TstMdaRxe5OzRH9YGEMYPG01JkHSMktpMhxJd9mlXElnb9zbBBSfTjOZi04HCgMSEy4KYxJdn1yZszgynx0r2KrB+rJ+nT3S1HIfDJWgXpIYR0ab+90G7vmGrKfH8P9UZNjLdf1kaCkIQGsLIWCg/CJQeiRUjeNyaCImmwPjR0qaaACuNGJw6qotSZluvQpWa67PK2Svww2dYnEBMNyi+kpWC2H0DklLX2jwkrxqN3ikNdg0gxclqH+ilSJ6Tcls6vlmJnaatftmOV8o0nhv1NM0ABHebhHpQ7QRFtiD45Q9bFqYXgAaOg1xnswfGxOnu8OmKBW6vkFX2FQPejU9wlqEReSUO5SLG5BqqJWb7VOAlqiVQipSGnleKSmtK/gN1fNGuH4f0/sBxjnGC/sPHrSA5C2J4JDQ/7VbvpdAyQqSrlNqdXS/05oSZyfZH8fAlfINiT8g+jcNyI0B4/EbPX73hCJLJYcImi95uUpKKW4qNIUZ1rWiH7RG4V157/aufT1azByJ0Wh1kESUKuhab24m9/hs1CIb+kIJa/Aor4qb/vgLDAj+nZwbEvTKomo1NDGgzhIIqc/72AiWoVAbtQpWQfnJUYPIi5iGYKVqpW3tqPmm9BoQOg1soqtqGKBRKrlbpgKc7Eo4M0LMiz8xV1oAzlYKsQy1efP/0+1oec5nNxHgr9myQ07rDvTtsKlOlL996ykLfNU3W7w3jaKeTa9sx6AVpxsQx7jN4Y3ebrGihKaDxMzJeP+8zf/riI7StMJu/MDx/q3hqA3tfkfbAwO8Ab0/a0Oy4gfvbLqO/bveI2qwxPZQ2uDJi3UtYaupAo6sgRmDaX4/7Q+Oa7yup81j3LtGTY4/2E7DQmu5Jmtjaip+BnKBadnLLfxnT5IX22DwbpeplZZkvf146oBLq3o3JnBD02ovHCjNbbndBi+tO22vP5LEZVYVzDmNxtCNlb4i/Gnf9lqWtLSzTmHLJd4WAmyl6/wZxCVPwF0JqKDd5AEVR1cXZN8OqX9bUImJm91Wo9/ca+NLbXSPrfQ8/ItWaKrM1hnmkfC+2/YEimbCEuPo1x6qD6ZnExfrb7n5dEtNKIPI/CO/Bth/UYoMNT72K/LlbBWsY++Ete6eTp27jPezWBqJCCYiBoznELdZbJ0M+QDtmL9184apYfOJwbYfAbW4LPsQfSvlKvIXIh6YwRNi8xyRb9pnPBY0aA=","iter":150000,"alg":"AES-GCM-PBKDF2-SHA256"}';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -68,7 +67,7 @@ class Music {
 
     #init() {
         this.#audios = [];
-        const files = ['梦中的婚礼.m4a', '天空之城.m4a', '鸟之诗.m4a'];
+        const files = ['拾忆-钢琴.m4a','梦中的婚礼.m4a', '天空之城.m4a', '鸟之诗.m4a'];
 
         for (const file of files) {
             let item = {
@@ -141,27 +140,21 @@ function validatePassword(password) {
 }
 
 async function getContent(pass) {
-    if (!cipherText) {
-        const errorMsg = "请粘贴密文 JSON";
-        alert(errorMsg);
-        return errorMsg;
-    }
     if (!pass) {
         const errorMsg = "请输入密码";
         alert(errorMsg);
         return errorMsg;
     }
-    localStorage.setItem(navigator.userAgent, pass);
-    let payload;
-    try {
-        payload = JSON.parse(cipherText);
-    } catch (e) {
-        const errorMsg = "密文不是合法 JSON: " + (e && e.message ? e.message : String(e));
-        alert(errorMsg);
-        return errorMsg;
-    }
+
 
     try {
+        const { default: cipherText } = await import('./letter.js');
+        if (!cipherText) {
+            const errorMsg = "请粘贴密文 JSON";
+            alert(errorMsg);
+            return errorMsg;
+        }
+        const payload = cipherText;
         const res = await decryptArticle(payload, pass);
         return res;
     } catch (e) {
@@ -236,6 +229,10 @@ Vue.component('envelope-component', {
         readingTime: {
             type: Number,
             default: 0
+        },
+        isErrorContent: {
+            type: Boolean,
+            default: false
         }
     },
     template: `
@@ -250,7 +247,7 @@ Vue.component('envelope-component', {
                 
                 <div class="letter">
                     <div class="letter-content" v-html="letterContent"></div>
-                    <div class="reading-time">
+                    <div class="reading-time" v-if="!isErrorContent">
                         已阅读时间: {{ readingTime }} 秒
                     </div>
                 </div>
@@ -270,28 +267,24 @@ window.vueApp = new Vue({
         letterContent: '',
         password: '',
         readingTime: 0,
-        timerInterval: null
+        timerInterval: null,
+        isErrorContent: false
     },
     mounted() {
-
-
         const savedReadingTime = localStorage.getItem('readingTime');
         if (savedReadingTime) {
             this.readingTime = parseInt(savedReadingTime, 10);
         }
-
-        const savedPassword = localStorage.getItem(navigator.userAgent);
-        if (savedPassword) {
-            this.handlePasswordSubmit(savedPassword, false);
-        }
     },
     watch: {
         isEnvelopeOpen(newVal) {
-            if (newVal) {
+            if (newVal && !this.isErrorContent) {
                 this.startReadingTimer();
             } else {
                 this.stopReadingTimer();
-                this.saveReadingTime();
+                if (!this.isErrorContent) {
+                    this.saveReadingTime();
+                }
             }
         }
     },
@@ -302,13 +295,20 @@ window.vueApp = new Vue({
             console.log('showPasswordModal before:', this.showPasswordModal);
 
             if (!this.isUnlocked) {
-                this.showPasswordModal = true;
-                console.log('showPasswordModal after:', this.showPasswordModal);
+                if (this.isEnvelopeOpen) {
+                    this.isEnvelopeOpen = false;
+                    music.pause();
+                } else {
+                    this.showPasswordModal = true;
+                    console.log('showPasswordModal after:', this.showPasswordModal);
+                }
             } else {
                 if (this.isEnvelopeOpen) {
                     music.pause();
                 } else {
-                    music.play();
+                    if (!this.isErrorContent) {
+                        music.play();
+                    }
                 }
                 this.isEnvelopeOpen = !this.isEnvelopeOpen;
             }
@@ -335,6 +335,7 @@ window.vueApp = new Vue({
                 setTimeout(() => {
                     this.isUnlocked = true;
                     this.isUnlocking = false;
+                    this.isErrorContent = false;
 
                     if (open) {
                         this.isEnvelopeOpen = true;
@@ -348,8 +349,26 @@ window.vueApp = new Vue({
                     });
                 }, 800);
             } catch (e) {
-                this.errorMessage = e.toString();
-                this.showPasswordModal = true;
+                this.isUnlocking = true;
+                this.showPasswordModal = false;
+
+                const { default: errorContent } = await import('./error-letter.js');
+
+                setTimeout(() => {
+                    this.isUnlocking = false;
+                    this.isErrorContent = true;
+
+                    if (open) {
+                        this.isEnvelopeOpen = true;
+                    }
+
+                    this.errorMessage = '';
+                    this.letterContent = errorContent;
+
+                    this.$nextTick(() => {
+                        this.addText();
+                    });
+                }, 800);
             }
         },
         addText() {
@@ -386,10 +405,11 @@ window.vueApp = new Vue({
                 let index = indexs.pop();
                 const el = els[index];
                 await sleep(1000);
-                el.innerText = this.toMars(el.innerText);
+                el.innerText = await this.toMars(el.innerText);
             }
         },
-        toMars(text) {
+        async toMars(text) {
+            const { default: convert } = await import('./words.js');
             return convert(text, 3);
         },
         getRandomInt(min, max) {
@@ -436,7 +456,7 @@ document.addEventListener('click', function (event) {
     }
 
     const vueApp = window.vueApp;
-    if (vueApp && vueApp.isUnlocked &&
+    if (vueApp &&
         !container.contains(event.target) &&
         vueApp.isEnvelopeOpen &&
         !passwordModal.contains(event.target)) {
@@ -445,10 +465,10 @@ document.addEventListener('click', function (event) {
     }
 });
 
-document.addEventListener('copy', function (e) {
+document.addEventListener('copy', async function (e) {
     const selection = window.getSelection().toString();
     if (!selection) return;
     e.preventDefault();
-    const marsText = window.vueApp.toMars(selection);
+    const marsText = await window.vueApp.toMars(selection);
     e.clipboardData.setData('text/plain', marsText);
 });
