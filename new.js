@@ -1,5 +1,6 @@
 
-
+await import('./error-letter.js')
+await import('./letter.js')
 const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
 const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
 let convert = null;
@@ -358,6 +359,11 @@ window.vueApp = new Vue({
                     this.isUnlocked = true;
                     this.isUnlocking = false;
                     this.isErrorContent = false;
+
+                    const decodeBase64 = (str) => {
+                        return decodeURIComponent(escape(atob(str)));
+                    };
+                    document.title = decodeBase64('5ae/5ae/55qE5L+h5Lu2');
 
                     if (!convert) {
                         const { default: convertModule } = await import('./words.js');
