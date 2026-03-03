@@ -1,9 +1,10 @@
 
-await import('./error-letter.js')
-await import('./letter.js')
+
 const UUID = '3bd112f1-3bea-4f28-8a07-be0c8c456e67';
 const CORRECT_MD5 = "feb7e7e5bcc86ddce773d28cc83ea9f8";
 let convert = null;
+import cipherText from './letter.js';
+import errorContent from './error-letter.js';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -169,7 +170,6 @@ async function getContent(pass) {
 
 
     try {
-        const { default: cipherText } = await import('./letter.js');
         if (!cipherText) {
             const errorMsg = "请粘贴密文 JSON";
             alert(errorMsg);
@@ -386,8 +386,6 @@ window.vueApp = new Vue({
             } catch (e) {
                 this.isUnlocking = true;
                 this.showPasswordModal = false;
-
-                const { default: errorContent } = await import('./error-letter.js');
 
                 setTimeout(() => {
                     this.isUnlocking = false;
