@@ -93,9 +93,11 @@ class Music {
 
         let response = await cache.match(url);
 
+
         if (!response) {
             response = await fetch(url);
-            await cache.put(url, response.clone());
+            cache.put(url, response.clone());
+            return url;
         }
 
         const blob = await response.blob();
