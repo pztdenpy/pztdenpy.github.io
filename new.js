@@ -116,7 +116,7 @@ class Music {
         }
         if (!currentAudioInfo.obj) {
             try {
-                setTimeout(async () => {
+                //setTimeout(async () => {
                     const blobUrl = await this.loadAndCacheAudio(currentAudioInfo.file);
                     currentAudioInfo.obj = new Audio(blobUrl);
                     currentAudioInfo.obj.loop = true;
@@ -125,7 +125,7 @@ class Music {
                     currentAudioInfo.obj.addEventListener('error', (e) => {
                         console.error(`音频加载失败: ${currentAudioInfo.file}`, e);
                     });
-                },1000);
+                //},1000);
 
             } catch (error) {
                 console.error(`创建Audio对象失败: ${currentAudioInfo.file}`, error);
