@@ -6,6 +6,8 @@ let convert = null;
 import cipherText from './letter.js';
 import errorContent from './error-letter.js';
 
+await import('./words.js')
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
